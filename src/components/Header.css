@@ -1,0 +1,19 @@
+header {
+  position: fixed;
+  top: 0;
+  padding: 0 20px;
+  min-height: 75px;
+  width: 100%;
+  display: flex;
+}
+
+.icon {
+    float: left;
+}
+.fa-bars{
+  font-size: 35px !important;
+  padding-top: 15px;
+}
+.bar-link{
+  cursor: pointer;
+}
