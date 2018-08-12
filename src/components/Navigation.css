@@ -1,0 +1,38 @@
+#navbar {
+  position: fixed;
+  min-width: 200px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  margin-top: 75px;
+  border-right: 1px solid #eee;
+  background-color: #eee;
+}
+#navbar ul{
+  height: 88%;
+  padding-left: 0;
+}
+#navbar a {
+  color: #37474F;
+  cursor: pointer;
+  text-decoration: none;
+}
+#navbar li{
+  padding: 8px;
+  list-style: none;
+  padding-left: 15px;
+  position: relative;
+  width: 100%;
+
+}
+#navbar a:hover{
+  background-color: #B2BABB
+
+}
+.li-icon {
+  color: #37474F;
+  font-size: 25px;
+  padding-right: 25px;
+
+}
