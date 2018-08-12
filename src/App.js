@@ -5,12 +5,24 @@ import Dashboard from './components/Dashboard';
 import Navigation from './components/Navigation';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      toggleNaveigation: true
+    }
+    this.handleToggleNavigation = this.handleToggleNavigation.bind(this);
+  }
+  handleToggleNavigation(toggleNaveigation) {
+     this.setState({
+       toggleNaveigation:toggleNaveigation
+     });
+  }
   render() {
     return (
       <div>
-      <Header />
+      <Header toggleNaveigation={this.handleToggleNavigation}/>
       <Dashboard />
-      <Navigation />
+      {this.state.toggleNaveigation ? <Navigation /> : "" }
       </div>
     );
   }
