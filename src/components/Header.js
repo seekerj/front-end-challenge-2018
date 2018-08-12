@@ -21,13 +21,14 @@ class Header extends Component {
   render(){
 
     return (
+      <div>
       <header className="bg-secondary text-white" id="header">
       <div className="icon">
         <a className="bar-link"><i onClick = {this.handleToggleNavigation} className="fa fa-bars"></i></a>
       </div>
 
     </header>
-
+      </div>
     );
   }
 }

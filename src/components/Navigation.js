@@ -5,6 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 class Navigation extends Component {
   render(){
     return (
+      <div>
       <nav id="navbar">
       <ul>
         <a className="nav-link" href="#">
@@ -15,7 +16,7 @@ class Navigation extends Component {
         </a>
       </ul>
     </nav>
-
+    </div>
 
     );
   }
