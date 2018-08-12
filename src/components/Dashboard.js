@@ -15,8 +15,19 @@ class Dashboard extends Component {
           <td>{request.status}</td>
         </tr>
       );
-    })
+    });
+
+    let activities = this.props.activities.map(activity => {
+      return <li>{activity.authId} {activity.action} {activity.object}:{activity.objectName} in {activity.benchName} at {activity.timestamp}</li>
+    });
     return (
+      <div>
+      <div>
+      <label>Invocation Count :  {this.props.count}</label>
+      <br/>
+      <label>Memory Usages :  {this.props.memory}  Bytes</label>
+      </div>
+      <hr/>
       <div>
       <table className="table">
         <thead className="thead-dark">
@@ -32,7 +43,11 @@ class Dashboard extends Component {
         {rows}
        </tbody>
       </table>
-
+      </div>
+      <div>
+        Activities :
+        <ul> {activities} </ul>
+      </div>
       </div>
     );
   }

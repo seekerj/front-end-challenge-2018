@@ -11,7 +11,10 @@ class App extends Component {
     super(props);
     this.state = {
       toggleNaveigation: true,
-      requests: []
+      requests: [],
+      count: 0,
+      memory: 0,
+      activities: []
     }
     this.handleToggleNavigation = this.handleToggleNavigation.bind(this);
   }
@@ -27,19 +30,44 @@ class App extends Component {
           cache: false,
           success: function(data){
             this.setState({requests: data.reply});
-          }.bind(this),
-          error: function(xhr, status, err){
-            console.log(err);
-          }
-        });
+          }.bind(this)});
   }
 
-  componentWillUpdate() {
-    this.getRequests();
+  getMemory() {
+    $.ajax({
+          url: 'http://www.mocky.io/v2/5b4dad7c31000055005ebd04',
+          dataType:'json',
+          cache: false,
+          success: function(data){
+            this.setState({memory: data.memory});
+          }.bind(this)});
+  }
+
+  getActivities() {
+    $.ajax({
+          url: 'http://www.mocky.io/v2/5b4daf3431000055005ebd18',
+          dataType:'json',
+          cache: false,
+          success: function(data){
+            this.setState({activities: data.reply});
+          }.bind(this)});
+  }
+
+  getInvocation() {
+    $.ajax({
+          url: 'http://www.mocky.io/v2/5b4dadc831000013115ebd05',
+          dataType:'json',
+          cache: false,
+          success: function(data){
+            this.setState({count: data.invocations});
+          }.bind(this)});
   }
 
    componentDidMount() {
       this.getRequests();
+      this.getMemory();
+      this.getInvocation();
+      this.getActivities();
    }
 
   render() {
@@ -52,7 +80,7 @@ class App extends Component {
               {this.state.toggleNaveigation ? <Navigation /> : "" }
             </div>
             <div className="col-md-10">
-               <Dashboard requests={this.state.requests}/>
+               <Dashboard requests={this.state.requests}  memory={this.state.memory}  count={this.state.count} activities={this.state.activities}/>
             </div>
           </div>
         </div>
